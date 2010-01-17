@@ -1,0 +1,36 @@
+%html
+  %head
+    %title
+      Andrew McDonough
+    %link{:rel => 'stylesheet',:href => '/css/spotkick.css'}
+  %body
+    %h1
+      %span.spotify
+        spot
+      %span.songkick
+        kick
+    Enter your
+    %a.songkick{ :href => "http://songkick.com", :target => "_new" }
+      Songkick
+    username to get
+    %a.spotify{ :href => "http://spotify.com", :target => "_new" }
+      Spotify
+    links to your upcoming gigs:
+    %br
+    %br
+    %form{ :method => "get" }
+      %input{ :name => "username", :type => "text", :value => @username }
+      %input.button{ :type => "submit", :value => "spotkick!" }
+    .message
+      = @message
+    - unless @username.nil? || !@message.blank?
+      %a.spotify{ :href => "http://spotify.com", :target => "_new" }
+        Spotify
+      links for
+      %a.songkick{ :href => calendar_url(@username), :target => "_new" }
+        = @username
+      's upcoming gigs:
+      %ul
+        - @upcoming_artists.each do |artist|
+          %li
+            = spotify_artist_link(artist)

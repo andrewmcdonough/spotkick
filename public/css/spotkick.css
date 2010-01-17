@@ -1,0 +1,55 @@
+body {
+  padding-top:30px;
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: white;
+  text-align:center;
+  font-size:14pt;
+}
+
+.songkick {
+  color: #f80046;
+}
+
+.spotify {
+  color: #88b102;
+}
+
+a {
+  color: #88b102;
+  text-decoration:none;
+}
+a:hover {
+  text-decoration:underline;
+}
+h1 {
+  font-size:50pt;
+}
+
+input {
+  font-size:20pt;
+
+}
+ul {
+  list-style-type: none
+}
+
+.button {
+  border:solid 1px white;;
+  background-color: #333;
+  color: #ccc;
+}
+
+
+.not_found {
+  color:#ff3333;
+}
+
+.not_found_message {
+  color:#ff3333;
+  font-size: 12pt;
+}
+
+.message {
+  color:#ff3333;
+}
