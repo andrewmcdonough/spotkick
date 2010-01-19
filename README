@@ -1,1 +1,11 @@
 A Sinatra app to generate Spotify playlists from a user's upcoming Songkick gigs
+
+Installation
+============
+  
+
+sudo gem install passenger hpricot sinatra haml
+
+
+
+

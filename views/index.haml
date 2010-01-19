@@ -1,36 +1,58 @@
 %html
   %head
     %title
-      Andrew McDonough
+      Spotkick - Generate Spotify artist links from your Songkick gig calendar
     %link{:rel => 'stylesheet',:href => '/css/spotkick.css'}
   %body
-    %h1
-      %span.spotify
-        spot
-      %span.songkick
-        kick
-    Enter your
-    %a.songkick{ :href => "http://songkick.com", :target => "_new" }
-      Songkick
-    username to get
-    %a.spotify{ :href => "http://spotify.com", :target => "_new" }
-      Spotify
-    links to your upcoming gigs:
-    %br
-    %br
-    %form{ :method => "get" }
-      %input{ :name => "username", :type => "text", :value => @username }
-      %input.button{ :type => "submit", :value => "spotkick!" }
-    .message
-      = @message
-    - unless @username.nil? || !@message.blank?
-      %a.spotify{ :href => "http://spotify.com", :target => "_new" }
-        Spotify
-      links for
-      %a.songkick{ :href => calendar_url(@username), :target => "_new" }
-        = @username
-      's upcoming gigs:
-      %ul
-        - @upcoming_artists.each do |artist|
-          %li
-            = spotify_artist_link(artist)
+    #container
+      #header
+        %h1
+          %span.spotify> spot
+          %span.songkick kick
+      #content
+        Enter your
+        %a.songkick{ :href => "http://songkick.com", :target => "_new" }
+          Songkick
+        username to get
+        %a.spotify{ :href => "http://spotify.com", :target => "_new" }
+          Spotify
+        links to your upcoming gigs:
+        %br
+        %br
+        %form{ :method => "get" }
+          %input{ :name => "username", :type => "text", :value => @username }
+          %input.button{ :type => "submit", :value => "spotkick!" }
+        .message
+          = @message
+        - unless @username.nil? || !@message.blank?
+          %a.spotify{ :href => "http://spotify.com", :target => "_new" }
+            Spotify
+          links for
+          %a.songkick{ :href => calendar_url(@username), :target => "_new" }
+            = @username
+          's upcoming gigs:
+          %ul
+            - @upcoming_artists.each do |artist|
+              %li
+                = spotify_artist_link(artist)
+      #footer
+        Built by
+        %a{:href => "http://twitter.com/andrewmcdonough", :target => "new", :class => "name"} Andrew McDonough
+        using
+        %a{:href => "http://ruby-lang.org", :target => "new"} Ruby
+        ,
+        %a{:href => "http://www.sinatrarb.com", :target => "new"} Sinatra
+        ,
+        %a{:href => "http://wiki.github.com/hpricot/hpricot/", :target => "new"} Hpricot
+        , 
+        %a{:href => "http://haml-lang.com/", :target => "new"} Haml
+        and
+        %a{:href => "http://github.com/philnash/meta-spotify", :target => "new"} meta-spotify
+        with data from
+        %a{:href => "http://songkick.com", :target => "new"} Songkick
+        and
+        %a{:href => "http://spotify.com", :target => "new"} Spotify
+        (source on
+        %a{:href => "http://github.com/andrewmcdonough/spotkick", :target => "new"} github
+        )
+  =erb(:analytics) rescue "" # Google analytics code - not checked in to github so ignore if not present
