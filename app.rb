@@ -3,6 +3,7 @@ require 'sinatra'
 require 'hpricot'
 require 'open-uri'
 require 'meta-spotify'
+require 'haml'
 
 def calendar_url(username)
   "http://www.songkick.com/users/#{username}/calendar"
@@ -22,7 +23,6 @@ def spotify_artist_link(artist)
   end
 end
 
-
 get '/' do
   @username = params[:username]
   unless @username.nil?
@@ -35,6 +35,3 @@ get '/' do
   end
   haml :index
 end
-
-
-

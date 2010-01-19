@@ -32,9 +32,12 @@
             = @username
           's upcoming gigs:
           %ul
-            - @upcoming_artists.each do |artist|
-              %li
-                = spotify_artist_link(artist)
+            - if @upcoming_artists.empty?
+              You don't have any upcoming gigs in your Songkick calendar
+            - else
+              - @upcoming_artists.each do |artist|
+                %li
+                  = spotify_artist_link(artist)
       #footer
         Built by
         %a{:href => "http://twitter.com/andrewmcdonough", :target => "new", :class => "name"} Andrew McDonough
